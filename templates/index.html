@@ -5,27 +5,42 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'css/bootsrap_custom.css' %}">
     <title>Url Shortner</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-    <div class="row align-items-center">
-        <div class="col">
-
-        </div>
-        <div class="col">
-            <form action="">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="URL"
-                           aria-label="Recipient's username"
-                           aria-describedby="button-addon2">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+<div class="d-flex h-100 align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="jumbotron flex-grow-0 flex-shrink-1" id="gateway">
+                    <form action="{% url "home" %}" method="post">
+                        {% csrf_token %}
+                        <div class="input-group mb-3">
+                            {{ form.link }}
+                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Shorten</button>
+                        </div>
+                    </form>
+                    {% if url %}
+                        <div class="alert alert-success">
+                            <a href="{{ url }}" target="_blank"
+                               class="align-items-center">{{ request.get_host }}/{{ url }}</a>
+                        </div>
+                    {% endif %}
+                    {% if request.user.is_authenticated %}
+                        <a href="/admin" target="_blank" class="btn btn-outline-warning">Admin</a>
+                    {% endif %}
                 </div>
-            </form>
-        </div>
-        <div class="col">
-
+            </div>
         </div>
     </div>
 </div>
+
 </body>
 </html>
+<!-- Coded By OBEID ARASH -->

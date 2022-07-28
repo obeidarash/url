@@ -4,4 +4,5 @@ from .models import Url
 
 @admin.register(Url)
 class UrlAdmin(admin.ModelAdmin):
-    pass
+    ordering = ['-create']
+    list_display = ['url', 'uuid', 'create']
