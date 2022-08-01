@@ -1,5 +1,7 @@
 from django.contrib import admin
 from .models import Url
+from django.contrib.auth.models import Group
+from django.contrib import admin
 
 
 @admin.register(Url)
@@ -21,3 +23,6 @@ class UrlAdmin(admin.ModelAdmin):
 
     def has_change_permission(self, request, obj=None):
         return False
+
+
+admin.site.unregister(Group)

@@ -1,18 +1,19 @@
+<!--
+Coded By OBEID ARASH
+https://github.com/obeidarash/url
+ -->
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="author" content="Obeid Arash">
+    <meta name="description" content="A link shortener web app">
+    <meta name="keywords" content="link, url, shortener, tinyurl">
+    <meta name="robots" content="follow">
     <link rel="stylesheet" href="{% static 'css/bootstrap_custom.css' %}">
-    <title>Micro Link | link Shortener</title>
-    <style>
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            background-color: #FCF8E8;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <title>Micro Link | a link Shortener</title>
 </head>
 <body>
 <div class="d-flex h-100 align-items-center">
@@ -29,9 +30,9 @@
                     </form>
                     {% if url %}
                         <div class="alert alert-success">
-                        Your short link is:
+                            Your short link is:
                             <a href="{{ url }}" target="_blank"
-                               class="align-items-center">{{ request.get_host }}/{{ url }}</a>
+                               class="align-items-center">{{ request.get_host }}/{% url 'shortener:go' url %}</a>
                         </div>
                     {% endif %}
                     {% if request.user.is_authenticated %}
@@ -44,4 +45,3 @@
 </div>
 </body>
 </html>
-<!-- Coded By OBEID ARASH -->
