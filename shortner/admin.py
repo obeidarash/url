@@ -5,8 +5,8 @@ from .models import Url
 @admin.register(Url)
 class UrlAdmin(admin.ModelAdmin):
     ordering = ['-create']
-    list_display = ['url', 'uuid', 'create']
-    readonly_fields = ['url', 'uuid', 'create']
+    list_display = ['ip', 'uuid', 'create']
+    readonly_fields = ['ip', 'url', 'uuid', 'create']
     list_filter = ['create', ]
     search_fields = ['url', ]
     list_per_page = 50

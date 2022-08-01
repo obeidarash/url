@@ -2,7 +2,7 @@ from django import forms
 from django.core import validators
 
 
-class ShortnerForm(forms.Form):
+class ShortenerForm(forms.Form):
     link = forms.CharField(widget=forms.TextInput(attrs={
         'placeholder': 'Give me your link',
         'class': 'form-control',

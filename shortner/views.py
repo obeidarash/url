@@ -2,24 +2,24 @@ from django.shortcuts import render, redirect
 import uuid
 from .models import Url
 from django.http import Http404
-from .forms import ShortnerForm
+from .forms import ShortenerForm
 
 
 def index(request):
-    shortner_form = ShortnerForm
+    shortener_form = ShortenerForm
     if request.method == 'GET':
-        return render(request, 'index.html', context={'form': shortner_form})
-    shortner_form = ShortnerForm(request.POST or None)
+        return render(request, 'index.html', context={'form': shortener_form})
+    shortener_form = ShortenerForm(request.POST or None)
     if request.method == 'POST':
-        if shortner_form.is_valid():
-            link = shortner_form.cleaned_data['link']
-            uid = str(uuid.uuid4())[:8],
+        if shortener_form.is_valid():
+            link = shortener_form.cleaned_data['link']
+            uid = str(uuid.uuid4())[:8]
             ip = get_client_ip(request)
             Url.objects.create(url=link, uuid=uid, ip=ip)
-            shortner_form = ShortnerForm
+            shortener_form = ShortenerForm
             context = {
                 'url': uid,
-                'form': shortner_form
+                'form': shortener_form
             }
             return render(request, 'index.html', context)
     return redirect('home')

@@ -3,8 +3,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'css/bootsrap_custom.css' %}">
-    <title>Url Shortner</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap_custom.css' %}">
+    <title>Micro Link | link Shortener</title>
     <style>
         html,
         body {
@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="jumbotron flex-grow-0 flex-shrink-1" id="gateway">
-                    <form action="{% url "shortner:home" %}" method="post">
+                    <form action="{% url "shortener:home" %}" method="post">
                         {% csrf_token %}
                         <div class="input-group mb-3">
                             {{ form.link }}
