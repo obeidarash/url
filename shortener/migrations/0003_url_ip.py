@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('shortner', '0002_url_create'),
+        ('shortener', '0002_url_create'),
     ]
 
     operations = [

@@ -5,10 +5,13 @@ from django.http import Http404
 from .forms import ShortenerForm
 
 
+# render home page
 def index(request):
     shortener_form = ShortenerForm
+    # render home page
     if request.method == 'GET':
         return render(request, 'index.html', context={'form': shortener_form})
+    # submit Shortener link form in home page
     shortener_form = ShortenerForm(request.POST or None)
     if request.method == 'POST':
         if shortener_form.is_valid():
@@ -25,6 +28,7 @@ def index(request):
     return redirect('home')
 
 
+# fetch short url in database
 def go(request, pk):
     url = Url.objects.filter(uuid=pk).first()
     if url is None:
@@ -32,6 +36,7 @@ def go(request, pk):
     return redirect(url.url)
 
 
+# get user ip address
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
     if x_forwarded_for:

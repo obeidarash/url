@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin', admin.site.urls),
-    path('', include('shortner.urls')),
+    path('', include('shortener.urls')),
 ]
 
 admin.site.site_header = "URL Shortner"

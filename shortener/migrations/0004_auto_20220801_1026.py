@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('shortner', '0003_url_ip'),
+        ('shortener', '0003_url_ip'),
     ]
 
     operations = [
