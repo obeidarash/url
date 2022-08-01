@@ -4,7 +4,7 @@ from django.core import validators
 
 class ShortnerForm(forms.Form):
     link = forms.CharField(widget=forms.TextInput(attrs={
-        'placeholder': 'https://www.youtube.com/watch?v=LLJhUVkgcvQ',
+        'placeholder': 'Give me your link',
         'class': 'form-control',
         'type': 'url',
         'aria-describedby': 'button-addon2',

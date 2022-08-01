@@ -10,6 +10,7 @@
         body {
             height: 100%;
             margin: 0;
+            background-color: #FCF8E8;
         }
     </style>
 </head>
@@ -23,11 +24,12 @@
                         {% csrf_token %}
                         <div class="input-group mb-3">
                             {{ form.link }}
-                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Shorten</button>
+                            <button class="btn btn-secondary" type="submit" id="button-addon2">Shorten</button>
                         </div>
                     </form>
                     {% if url %}
                         <div class="alert alert-success">
+                        Your short link is:
                             <a href="{{ url }}" target="_blank"
                                class="align-items-center">{{ request.get_host }}/{{ url }}</a>
                         </div>
@@ -39,7 +41,7 @@
             </div>
         </div>
     </div>
-</div>/l
+</div>
 </body>
 </html>
 <!-- Coded By OBEID ARASH -->
