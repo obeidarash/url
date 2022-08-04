@@ -24,6 +24,7 @@ https://github.com/obeidarash/url
                     <form action="{% url "shortener:home" %}" method="post">
                         {% csrf_token %}
                         <div class="input-group mb-3">
+
                             {{ form.link }}
                             <button class="btn btn-secondary" type="submit" id="button-addon2">Shorten</button>
                         </div>

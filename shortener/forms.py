@@ -10,4 +10,5 @@ class ShortenerForm(forms.Form):
         'aria-describedby': 'button-addon2',
         'aria-label': 'Recipients username',
         'name': 'link',
+        'autofocus': 'True'
     }), required=True, validators=[validators.URLValidator(), ])
