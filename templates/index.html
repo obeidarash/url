@@ -32,7 +32,7 @@ https://github.com/obeidarash/url
                         <div class="alert alert-success">
                             Your short link is:
                             <a href="{{ url }}" target="_blank"
-                               class="align-items-center">{{ request.get_host }}/{% url 'shortener:go' url %}</a>
+                               class="align-items-center">{{ request.get_host }}{% url 'shortener:go' url %}</a>
                         </div>
                     {% endif %}
                     {% if request.user.is_authenticated %}
