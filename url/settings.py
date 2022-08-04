@@ -15,8 +15,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+"""
+Create public and private key for google captcha from link below:
+https://www.google.com/recaptcha/admin 
+"""
+
 RECAPTCHA_PRIVATE_KEY = '6LeAD0ghAAAAABKwaGJEO5SlTmQicYS99i8yoAat'
-RECAPTCHA_PUBLIC_KEY = '6LeAD0ghAAAAAEbXMNiQOOj9XlwK3COf5N4IiKgW'
+RECAPTCHA_PUBLIC_KEY = '6a'
 
 MULTI_CAPTCHA_ADMIN = {
     'engine': 'recaptcha2',
